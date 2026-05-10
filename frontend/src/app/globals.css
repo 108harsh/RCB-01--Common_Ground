@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --color-border: #282833;
+}
+
+@layer base {
+  :root {
+    --background: #0A0A0F;
+    --foreground: #ffffff;
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
