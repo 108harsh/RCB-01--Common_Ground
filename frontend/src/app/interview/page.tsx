@@ -13,7 +13,7 @@ export default function InterviewPage() {
     setLoading(true)
     const studentId = localStorage.getItem('student_id') || '550e8400-e29b-41d4-a716-446655440000'
     try {
-      const res = await fetch(`http://localhost:8000/api/interview/start`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}` + `/api/interview/start`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ student_id: studentId, target_role: "Software Engineer", mode: "technical" })
@@ -42,7 +42,7 @@ export default function InterviewPage() {
     setLoading(true)
     
     try {
-      const res = await fetch(`http://localhost:8000/api/interview/answer`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}` + `/api/interview/answer`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 

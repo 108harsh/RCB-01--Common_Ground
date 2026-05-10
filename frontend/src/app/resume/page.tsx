@@ -19,14 +19,14 @@ export default function ResumePage() {
     
     try {
       // 1. Upload
-      const res = await fetch("http://localhost:8000/api/resume/upload", {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}` + "/api/resume/upload", {
         method: "POST",
         body: formData
       })
       const uploadData = await res.json()
       
       // 2. Analyze
-      const analyzeRes = await fetch("http://localhost:8000/api/resume/analyze", {
+      const analyzeRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}` + "/api/resume/analyze", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({

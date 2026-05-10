@@ -9,7 +9,7 @@ export default function DashboardPage() {
 
   useEffect(() => {
     const studentId = localStorage.getItem('student_id') || '550e8400-e29b-41d4-a716-446655440000'
-    fetch(`http://localhost:8000/api/student/dashboard/${studentId}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}` + `/api/student/dashboard/${studentId}`)
       .then(res => res.json())
       .then(d => {
         setData(d)

@@ -7,7 +7,7 @@ export default function ProfilePage() {
   
   useEffect(() => {
     const studentId = localStorage.getItem('student_id') || '550e8400-e29b-41d4-a716-446655440000'
-    fetch(`http://localhost:8000/api/student/history/${studentId}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}` + `/api/student/history/${studentId}`)
       .then(res => res.json())
       .then(d => setData(d))
       .catch(e => console.error(e))

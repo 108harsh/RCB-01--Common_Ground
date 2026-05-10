@@ -13,7 +13,7 @@ export default function PlannerPage() {
     const studentId = localStorage.getItem('student_id') || '550e8400-e29b-41d4-a716-446655440000'
     
     try {
-      const res = await fetch(`http://localhost:8000/api/planner/generate`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000"}` + `/api/planner/generate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ student_id: studentId, goal_text: goal, hours_per_week: 20 })
